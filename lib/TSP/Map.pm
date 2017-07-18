@@ -12,19 +12,19 @@ any '/' => sub {
     my $coordinates = request->upload('coordinates');
     my $addresses   = request->upload('addresses');
 
-    my ( $out, $path );
+    my ( $link, $path );
 
     if ($coordinates) {
-        ( $out, $path ) = process_coordinates($coordinates);
+        ( $link, $path ) = process_coordinates($coordinates);
     }
     elsif ($addresses) {
-        ( $out, $path ) = process_addresses($addresses);
+        ( $link, $path ) = process_addresses($addresses);
     }
 
     template 'index' => {
-        title   => 'Traveling Salesperson',
-        content => $out,
-        path    => $path,
+        title => 'Traveling Salesperson',
+        link  => $link,
+        path  => $path,
     };
 };
 
@@ -48,9 +48,9 @@ sub process_coordinates {
 
     my ( undef, @coords ) = $tsp->solve;
 
-    my ( $out, $path ) = build_map( $coord_name, @coords );
+    my ( $link, $path ) = build_map( $coord_name, @coords );
 
-    return $out, $path;
+    return $link, $path;
 }
 
 sub process_addresses {
@@ -75,15 +75,15 @@ sub process_addresses {
 
     my ( undef, @coords ) = $tsp->solve;
 
-    my ( $out, $path ) = build_map( $coord_name, @coords );
+    my ( $link, $path ) = build_map( $coord_name, @coords );
 
-    return $out, $path;
+    return $link, $path;
 }
 
 sub build_map {
     my ( $coord_name, @coords ) = @_;
 
-    my ( $out, $path );
+    my ( $link, $path );
 
     my $polygon = Math::Geometry::Planar->new;
     $polygon->points( [ @coords[ 1 .. $#coords ] ] );
@@ -117,7 +117,7 @@ sub build_map {
             unless $i == @coords;
     }
 
-    $out = qq|<a href="$multi">Route Driving Directions</a>|;
+    $link = qq|<a href="$multi">Route Driving Directions</a>|;
 
     $map->add_polyline( points => [ @coords[ 0 .. $#coords - 1 ] ] );
 
@@ -128,7 +128,7 @@ sub build_map {
     print $fh qq|<body onload="html_googlemaps_initialize()">$map_div</body></html>|;
     close $fh;
 
-    return $out, $path;
+    return $link, $path;
 }
 
 true;

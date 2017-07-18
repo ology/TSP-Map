@@ -28,13 +28,13 @@
             </form>
         </div>
 
-<% IF content %>
+<% IF link %>
         <div id="result">
             <p><b>Results:</b></p>
             <p/>
             <a href="map.html">Individual Place Marker Map</a>
             <p/>
-            <% content %>
+            <% link %>
             <p/>
             <% path %>
         </div>
