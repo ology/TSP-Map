@@ -11,6 +11,7 @@ any '/' => sub {
     my $upload = request->upload('fileToUpload');
     my $content;
     my $out;
+    my $path;
 
     if ($upload) {
         my $coord_name;
@@ -57,6 +58,8 @@ any '/' => sub {
             );
 
             $i++;
+
+            $path .= sprintf "%d. %s [%s]<br/>\n", $i, $coord_name->{$key}, $key;
         }
 
         $out = qq|<a href="$multi">Route Driving Directions</a>|;
@@ -74,6 +77,7 @@ any '/' => sub {
     template 'index' => {
         title   => 'Traveling Salesperson',
         content => $out,
+        path    => $path,
     };
 };
 
