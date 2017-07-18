@@ -11,14 +11,15 @@ our $VERSION = '0.1';
 any '/' => sub {
     my $coordinates = request->upload('coordinates');
     my $addresses   = request->upload('addresses');
+    my $zoom        = query_parameters->get('zoom');
 
     my ( $link, $path );
 
     if ($coordinates) {
-        ( $link, $path ) = process_coordinates($coordinates);
+        ( $link, $path ) = process_coordinates( $coordinates, $zoom );
     }
     elsif ($addresses) {
-        ( $link, $path ) = process_addresses($addresses);
+        ( $link, $path ) = process_addresses( $addresses, $zoom );
     }
 
     template 'index' => {
@@ -29,7 +30,7 @@ any '/' => sub {
 };
 
 sub process_coordinates {
-    my ($coordinates) = @_;
+    my ( $coordinates, $zoom ) = @_;
 
     my $coord_name;
 
@@ -48,13 +49,13 @@ sub process_coordinates {
 
     my ( undef, @coords ) = $tsp->solve;
 
-    my ( $link, $path ) = build_map( $coord_name, @coords );
+    my ( $link, $path ) = build_map( $coord_name, $zoom, @coords );
 
     return $link, $path;
 }
 
 sub process_addresses {
-    my ($addresses) = @_;
+    my ( $addresses, $zoom ) = @_;
 
     my $coord_name;
 
@@ -75,13 +76,13 @@ sub process_addresses {
 
     my ( undef, @coords ) = $tsp->solve;
 
-    my ( $link, $path ) = build_map( $coord_name, @coords );
+    my ( $link, $path ) = build_map( $coord_name, $zoom, @coords );
 
     return $link, $path;
 }
 
 sub build_map {
-    my ( $coord_name, @coords ) = @_;
+    my ( $coord_name, $zoom, @coords ) = @_;
 
     my ( $link, $path );
 
@@ -90,7 +91,7 @@ sub build_map {
     my $centroid = $polygon->centroid;
 
     my $map = HTML::GoogleMaps::V3->new( height => 800, width => 800 );
-    $map->zoom(12);
+    $map->zoom($zoom);
     $map->center($centroid);
 
     my $base  = 'https://www.google.com/maps/dir';

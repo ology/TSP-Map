@@ -13,18 +13,18 @@
             <a href="coordinates.txt">Example coordinates file</a>
             <form action="/" method="post" enctype="multipart/form-data">
                 <input type="file" name="coordinates" id="coordinates">
-                <input type="submit" value="Upload coordinate File" name="submit">
+                <input type="submit" value="Upload coordinates" name="submit">
+                Zoom: <input type="text" value="12" name="zoom" size="2" maxlength="2">
             </form>
-        </div>
 
-        <div id="upload">
             <p/>
             Upload a text file of <i>street, city, state zipcode</i> address lines.
             <br/>
             <a href="addresses.txt">Example addresses file</a>
             <form action="/" method="post" enctype="multipart/form-data">
                 <input type="file" name="addresses" id="addresses">
-                <input type="submit" value="Upload address File" name="submit">
+                <input type="submit" value="Upload addresses" name="submit">
+                Zoom: <input type="text" value="" name="zoom" size="2" maxlength="2">
             </form>
         </div>
 
