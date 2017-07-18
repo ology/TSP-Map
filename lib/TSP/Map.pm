@@ -8,17 +8,17 @@ use HTML::GoogleMaps::V3;
 our $VERSION = '0.1';
 
 any '/' => sub {
-    my $upload = request->upload('fileToUpload');
+    my $coordinates = request->upload('coordinates');
     my $content;
     my $out;
     my $path;
 
-    if ($upload) {
+    if ($coordinates) {
         my $coord_name;
 
         my $tsp = Algorithm::TravelingSalesman::BitonicTour->new;
 
-        $content = $upload->content;
+        $content = $coordinates->content;
 
         my @lines = split /\n/, $content;
 
@@ -59,7 +59,8 @@ any '/' => sub {
 
             $i++;
 
-            $path .= sprintf "%d. %s [%s]<br/>\n", $i, $coord_name->{$key}, $key;
+            $path .= sprintf "%d. %s [%s]<br/>\n", $i, $coord_name->{$key}, $key
+                unless $i == @coords;
         }
 
         $out = qq|<a href="$multi">Route Driving Directions</a>|;
