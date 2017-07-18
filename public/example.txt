@@ -1,0 +1,19 @@
+-73.9435296, 40.8361392, Brothers Fish Market
+-73.9782725, 40.7624022, Murals On 54/Randolphs'S
+-73.9850196, 40.7524629, Mars Cafe
+-73.987977,  40.755195,  Midtown Buffet
+-73.9889479, 40.7568894, B.B. Kings
+-73.9897851, 40.7487912, Cafe R
+-73.9934047, 40.7544014, Concrete Restaurant
+-74.0163793, 40.7167671, West 79Th Street Boat Basin Cafe
+-73.9983631, 40.7158265, Wonton Noodle Garden
+-73.9883909, 40.740735,  Live Bait Bar & Restaurant
+-73.9864626, 40.7266739, Gandhi
+-73.984758,  40.7457939, Bella Napoli
+-73.981843,  40.741207,  East Japanese Restaurant
+-73.9772294, 40.7527262, Two Boots Grand Central
+-73.976478,  40.7504097, Everyday Gourmet Deli
+-73.9747277, 40.7536114, Bistro Caterers
+-73.970671,  40.7515735, La Trattoria
+-73.94981,   40.780043,  Baluchi'S Indian Food
+-73.941892,  40.7982236, Lexington Restaurant

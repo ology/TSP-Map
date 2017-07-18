@@ -1,0 +1,33 @@
+<div id="page">
+    <div id="content">
+
+        <div id="header">
+            <h1><% title %></h1>
+            <h2>Map the optimal route</h2>
+        </div>
+
+        <p/>
+        Upload a comma separated text file of <i>latitude,longitude,place-name</i> lines.
+        <br/>
+        <a href="example.txt">Example file</a>
+        <br/>
+        <div id="upload">
+            <p/>
+            <form action="/" method="post" enctype="multipart/form-data">
+                <input type="file" name="fileToUpload" id="fileToUpload">
+                <input type="submit" value="Upload File" name="submit">
+            </form>
+        </div>
+
+<% IF content %>
+        <div id="result">
+            <p><b>Results:</b></p>
+            <p/>
+            <a href="map.html">Individual Place Marker Map</a>
+            <p/>
+            <% content %>
+        </div>
+<% END %>
+
+    </div>
+</div>
