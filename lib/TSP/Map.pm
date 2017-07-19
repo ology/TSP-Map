@@ -61,14 +61,15 @@ sub process_addresses {
 
     my $tsp = Algorithm::TravelingSalesman::BitonicTour->new;
 
-    my $geocoder = Geo::Coder::OSM->new;
+    my $osm = Geo::Coder::OSM->new;
 
     my $content = $addresses->content;
 
     my @lines = split /\n/, $content;
 
     for my $line (@lines) {
-        my $location = $geocoder->geocode( location => $line );
+        my $location = $osm->geocode( location => $line );
+        die "ERROR: Can't geocode '$line'" unless $location;
         my @point = ( $location->{lon}, $location->{lat} );
         $tsp->add_point(@point);
         $coord_name->{ join ',', @point } = $line;
