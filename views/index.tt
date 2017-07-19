@@ -14,7 +14,7 @@
             <form action="/" method="post" enctype="multipart/form-data">
                 <input type="file" name="coordinates" id="coordinates">
                 <input type="submit" value="Upload coordinates" name="submit">
-                Zoom: <input type="text" value="12" name="zoom" size="2" maxlength="2">
+                Zoom: <input type="text" value="" name="zoom" size="2" maxlength="2">
             </form>
 
             <p/>
