@@ -10,7 +10,7 @@
             <p/>
             Upload a comma separated text file of <i>latitude, longitude, place-name</i> lines.
             <br/>
-            <a href="coordinates.txt">Example coordinates file</a>
+            <a href="coordinates.txt">Example coordinates file</a> (zoom level 12)
             <form action="/" method="post" enctype="multipart/form-data">
                 <input type="file" name="coordinates" id="coordinates">
                 <input type="submit" value="Upload coordinates" name="submit">
@@ -20,7 +20,7 @@
             <p/>
             Upload a text file of <i>street, city, state zipcode</i> address lines.
             <br/>
-            <a href="addresses.txt">Example addresses file</a>
+            <a href="addresses.txt">Example addresses file</a> (zoom level 3)
             <form action="/" method="post" enctype="multipart/form-data">
                 <input type="file" name="addresses" id="addresses">
                 <input type="submit" value="Upload addresses" name="submit">
