@@ -11,7 +11,7 @@ our $VERSION = '0.1';
 any '/' => sub {
     my $coordinates = request->upload('coordinates');
     my $addresses   = request->upload('addresses');
-    my $zoom        = body_parameters->get('zoom');
+    my $zoom        = body_parameters->get('zoom') || 12;
 
     my ( $link, $path );
 
