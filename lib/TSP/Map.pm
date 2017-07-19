@@ -119,7 +119,7 @@ sub build_map {
             unless $i == @coords;
     }
 
-    $link = qq|<a href="$multi">Route Driving Directions</a>|;
+    $link = $multi;
 
     $map->add_polyline( points => [ @coords[ 0 .. $#coords - 1 ] ] );
 

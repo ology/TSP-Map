@@ -30,13 +30,17 @@
 
 <% IF link %>
         <div id="result">
-            <p><b>Results:</b></p>
             <p/>
-            <a href="map.html">Individual Place Marker Map</a>
-            <p/>
-            <% link %>
-            <p/>
+            <hr/>
+            <b>Optimal route:</b>
+            <br/>
             <% path %>
+            <p/>
+            <b><a href="map.html">Individual Place Marker Map</a>:</b>
+            <br/>
+            <iframe src="map.html" frameborder="0" height="500" width="500"></iframe> 
+            <p/>
+            <b><a href="<% link %>">Route Driving Directions</a></b>
         </div>
 <% END %>
 
