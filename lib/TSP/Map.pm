@@ -1,6 +1,6 @@
 package TSP::Map;
 
-use Dancer2;
+use Dancer ':syntax';
 use Algorithm::TravelingSalesman::BitonicTour;
 use Math::Geometry::Planar;
 use HTML::GoogleMaps::V3;
@@ -11,7 +11,7 @@ our $VERSION = '0.1';
 any '/' => sub {
     my $coordinates = request->upload('coordinates');
     my $addresses   = request->upload('addresses');
-    my $zoom        = body_parameters->get('zoom') || 12;
+    my $zoom        = params->{zoom} || 12;
 
     my ( $link, $path );
 

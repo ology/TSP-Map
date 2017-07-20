@@ -1,15 +1,10 @@
+use Test::More tests => 2;
 use strict;
 use warnings;
 
+# the order is important
 use TSP::Map;
-use Test::More tests => 2;
-use Plack::Test;
-use HTTP::Request::Common;
+use Dancer::Test;
 
-my $app = TSP::Map->to_app;
-is( ref $app, 'CODE', 'Got app' );
-
-my $test = Plack::Test->create($app);
-my $res  = $test->request( GET '/' );
-
-ok( $res->is_success, '[GET /] successful' );
+route_exists [GET => '/'], 'a route handler is defined for /';
+response_status_is ['GET' => '/'], 200, 'response status is 200 for /';
