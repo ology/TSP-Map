@@ -14,7 +14,11 @@
             <form action="/" method="post" enctype="multipart/form-data">
                 <input type="file" name="coordinates" id="coordinates">
                 <input type="submit" value="Upload coordinates" name="submit">
-                Zoom: <input type="text" value="" name="zoom" size="2" maxlength="2">
+                Zoom: <select name="zoom">
+<% FOREACH i IN [ 1 .. 20 ] %>
+                    <option value="<% i %>"><% i %></option>
+<% END %>
+                </select>
             </form>
 
             <p/>
@@ -24,7 +28,11 @@
             <form action="/" method="post" enctype="multipart/form-data">
                 <input type="file" name="addresses" id="addresses">
                 <input type="submit" value="Upload addresses" name="submit">
-                Zoom: <input type="text" value="" name="zoom" size="2" maxlength="2">
+                Zoom: <select name="zoom">
+<% FOREACH i IN [ 1 .. 20 ] %>
+                    <option value="<% i %>"><% i %></option>
+<% END %>
+                </select>
             </form>
         </div>
 
@@ -36,10 +44,11 @@
             <br/>
             <% path %>
             <p/>
+            <b><a href="<% link %>">Route Driving Directions</a></b>
+            <p/>
             <b><a href="map.html">Individual Place Marker Map</a>:</b>
             <br/>
-            <iframe src="map.html" frameborder="0" height="900" width="900"></iframe> 
-            <b><a href="<% link %>">Route Driving Directions</a></b>
+            <iframe src="map.html" frameborder="0" height="825" width="825"></iframe> 
         </div>
 <% END %>
 
