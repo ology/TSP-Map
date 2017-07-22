@@ -12,13 +12,13 @@
             <br/>
             <a href="coordinates.txt">Example coordinates file</a> (zoom level 12)
             <form action="/" method="post" enctype="multipart/form-data">
-                <input type="file" name="coordinates" id="coordinates">
-                <input type="submit" value="Upload coordinates" name="submit">
                 Zoom: <select name="zoom">
 <% FOREACH i IN [ 1 .. 20 ] %>
                     <option value="<% i %>"><% i %></option>
 <% END %>
                 </select>
+                <input type="file" name="coordinates" id="coordinates">
+                <input type="submit" value="Upload coordinates" name="submit">
             </form>
 
             <p/>
@@ -26,13 +26,13 @@
             <br/>
             <a href="addresses.txt">Example addresses file</a> (zoom level 4)
             <form action="/" method="post" enctype="multipart/form-data">
-                <input type="file" name="addresses" id="addresses">
-                <input type="submit" value="Upload addresses" name="submit">
                 Zoom: <select name="zoom">
 <% FOREACH i IN [ 1 .. 20 ] %>
                     <option value="<% i %>"><% i %></option>
 <% END %>
                 </select>
+                <input type="file" name="addresses" id="addresses">
+                <input type="submit" value="Upload addresses" name="submit">
             </form>
         </div>
 
