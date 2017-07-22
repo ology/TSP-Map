@@ -22,7 +22,7 @@
             </form>
 
             <p/>
-            Upload a text file of <i>street, city, state zipcode</i> addresses or place names.
+            Upload a text file of <i>city, state</i> place names.
             <br/>
             <a href="addresses.txt">Example addresses file</a> (zoom level 4)
             <form action="/" method="post" enctype="multipart/form-data">
